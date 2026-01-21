@@ -1,0 +1,204 @@
+/*
+ * styles.css
+ * Minimal academic styling for the Silueta gallery site.
+ * Uses a mobile‑first approach with responsive grid for the gallery and
+ * accessible focus states. No external fonts are loaded.
+ */
+
+:root {
+  /* Colour palette: neutral greys with a subtle blue accent for focus */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #1a73e8;
+  --muted-color: #666666;
+  --border-color: #dddddd;
+  --link-color: #1a73e8;
+  --link-hover: #0c47a1;
+  --max-width: 900px;
+  --transition-speed: 0.2s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+.site-title {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+nav {
+  margin-left: auto;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background-color: var(--link-color);
+  color: #fff;
+  outline: none;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gallery-item:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-item .caption {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+/* Notes section styling */
+#notes-content {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  background-color: #fafafa;
+}
+
+#notes-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+#notes-content h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+#notes-content p {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+#notes-content .button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button.action {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+button.action:hover,
+button.action:focus {
+  background-color: var(--accent-color);
+  color: #fff;
+  outline: none;
+}
+
+/* Limitations and bibliography lists */
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-color);
+}
